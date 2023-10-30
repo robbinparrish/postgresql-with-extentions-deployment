@@ -1,0 +1,25 @@
+#
+# docker-compose file for deploying postgresql server.
+#
+
+version: '3.8'
+services:
+  pgsql-db:
+    # image: postgres:15.4
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pgsql-db
+    environment:
+      - TZ="UTC"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=YOUR_DB_PASSWORD
+    volumes:
+      - ./pgsql-db/data:/var/lib/postgresql/data
+      - ./pgsql-db/log:/var/log/postgresql
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"

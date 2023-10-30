@@ -1,0 +1,17 @@
+#
+# .gitignore file - Ignore everything and recursive allow them.
+#
+
+#
+# Ignore everything.
+#
+*
+
+#
+# Recursive allow.
+#
+!.gitignore
+!.dockerignore
+!Dockerfile
+!README.md
+!docker-compose.yml
